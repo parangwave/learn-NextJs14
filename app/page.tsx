@@ -1,7 +1,9 @@
 // auto install ts
 // must exist (nextjs find this file first)
 
-import Navigation from "../components/navigation";
+// server component (unless use client)
+
+import Navigation from "../components/Navigation";
 
 export default function Page() {
   return (

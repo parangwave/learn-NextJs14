@@ -1,4 +1,5 @@
-"use client"; // but SSR in NextJs
+// "use client" !== only render in client
+"use client"; // SSR, then hydrate in FE
 // all comps and pages first render in BE
 
 import Link from "next/link";
