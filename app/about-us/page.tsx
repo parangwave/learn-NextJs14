@@ -1,12 +1,12 @@
 // path: /about-us
+import Navigation from "../../components/navigation";
 // ⭐ 직접적인 page.tsx 파일이 없는 폴더는 실제 페이지가 없다
 
-import Avatar from "./components/avatar";
-
-export default function AboutUS() {
+export default function AboutUs() {
   return (
-    <h1>
-      About Us <Avatar />
-    </h1>
+    <div>
+      <Navigation />
+      <h1>About us!</h1>
+    </div>
   );
 }
