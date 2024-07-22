@@ -1,4 +1,6 @@
-"use client";
+"use client"; // but SSR in NextJs
+// all comps and pages first render in BE
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
