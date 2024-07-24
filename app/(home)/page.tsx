@@ -3,6 +3,13 @@
 
 // server component (unless use client)
 
+// route groups: (folder name)
+// invisible for fwk, not affect url
+
+export const metadata = {
+  title: "Home",
+};
+
 export default function Page() {
   return (
     <div>
