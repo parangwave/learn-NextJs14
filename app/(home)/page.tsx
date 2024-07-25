@@ -1,35 +1,24 @@
-"use client";
+// not in client
+export const metadata = {
+  title: "Home",
+};
 
-// auto install ts
-// must exist (nextjs find this file first)
+const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
-import { useEffect, useState } from "react";
+async function getMovies() {
+  // loading state moved, disappeared X
+  await new Promise((resolve) => setTimeout(resolve, 5000)); // trick to slow down
 
-// server component (unless use client)
+  // 첫번째 요청으로 메모리에서 받은 fetch된 데이터만 받음
+  // fetch된 URL을 캐싱해줌 b/c NextJS === fwk
+  return fetch(URL).then((response) => response.json());
+  // const resp = await fetch(URL);
+  // const json = await resp.json();
+  // return json;
+}
 
-// route groups: (folder name)
-// invisible for fwk, not affect url
-
-// // not in client
-// export const metadata = {
-//   title: "Home",
-// };
-
-export default function Page() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState();
-  const getMovies = async () => {
-    const resp = await fetch(
-      "https://nomad-movies.nomadcoders.workers.dev/movies"
-    );
-    const json = await resp.json();
-    setMovies(json);
-  };
-
-  useEffect(() => {
-    getMovies();
-    setIsLoading(false);
-  }, []);
-
-  return <div>{isLoading ? "loading..." : JSON.stringify(movies)}</div>;
+// 어떤 일이 발생하길 기다리려고 await를 사용할 때, 부모 함수에 async가 무조건 있어야함
+export default async function HomePage() {
+  const movies = await getMovies();
+  return <div>{JSON.stringify(movies)}</div>;
 }
