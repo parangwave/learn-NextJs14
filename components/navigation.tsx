@@ -20,7 +20,7 @@ export default function Navigation() {
   return (
     // class="navigation_nav___{random}" -> class 충돌 X
     <nav className={styles.nav}>
-      <ul className={styles.list}>
+      <ul>
         <li>
           <Link href="/">Home</Link>
           {path === "/" ? "🏠" : ""}
