@@ -1,0 +1,19 @@
+.nav {
+  background-color: red;
+  padding: 50px 100px;
+}
+
+/* error: selector ul is not pure */
+/* ul {
+  background-color: green;
+} */
+
+/* must start w/ class */
+/* .nav ul {
+  background-color: green;
+} */
+
+/* or use just class */
+.list {
+  display: flex;
+}

@@ -1,3 +1,4 @@
+import "../styles/global.css"; // export root css in root layout
 import { Metadata } from "next";
 import Navigation from "../components/navigation";
 

@@ -4,7 +4,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+
+// css module을 js인 것 처럼 import 해야 함
+import styles from "../styles/navigation.module.css";
 
 export default function Navigation() {
   // path name; url a user stay
@@ -16,8 +18,9 @@ export default function Navigation() {
   // -> init(html) into interactive react component w/ event-listener
 
   return (
-    <nav>
-      <ul>
+    // class="navigation_nav___{random}" -> class 충돌 X
+    <nav className={styles.nav}>
+      <ul className={styles.list}>
         <li>
           <Link href="/">Home</Link>
           {path === "/" ? "🏠" : ""}
