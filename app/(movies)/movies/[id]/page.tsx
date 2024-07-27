@@ -24,9 +24,11 @@ export default async function MovieDetail({
       {/* Suspense = 데이터가 fetch하기 위해 자신 안 component를 await */}
       {/* fetching 중엔 fallback 보여줌 */}
       {/* fallback = component가 await되는 동안 표시할 메세지를 render할 수 있게 해줌 */}
+      <h3>Movie detail page</h3>
       <Suspense fallback={<h1>Loading movie info</h1>}>
         <MovieInfo id={id} />
       </Suspense>
+      <h4>Videos</h4>
       <Suspense fallback={<h1>Loading movie video</h1>}>
         <MovieVideos id={id} />
       </Suspense>
