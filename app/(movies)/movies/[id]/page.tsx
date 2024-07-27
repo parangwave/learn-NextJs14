@@ -1,14 +1,30 @@
 // dynamic routes = [folder name]
 import { Suspense } from "react";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
 
-export default async function MovieDetail({
+type IParams = {
+  params: { id: string };
+};
+
+// 처음 fetch했을 떄에는 fetch가 한 번 실행
+// 영화 정보를 얻기 위해 두번째로 fetch할 때에는 캐시된 응답
+// metadata obj 및 generateMetadata() -> server component
+// in 동일한 경로, metadata obj & generateMetadata() 모두 export 할 수 X
+export async function generateMetadata({ params: { id } }: IParams) {
+  const movie = await getMovie(id);
+  return {
+    title: movie.title,
+  };
+}
+
+export default async function MovieDetailPage({
   // searchParams 검색 페이지 구축할 때 유용
   params: { id }, // var in url
-}: {
-  params: { id: string };
-}) {
+}: IParams) {
+  // {
+  //   params: { id: string };
+  // }
   console.log("===========");
   console.log("start fetching");
 

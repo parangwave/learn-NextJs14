@@ -1,7 +1,7 @@
 import { API_URL } from "../app/(home)/page";
 import potato from "../styles/movie-info.module.css";
 
-async function getMovie(id: string) {
+export async function getMovie(id: string) {
   const resp = await fetch(`${API_URL}/${id}`);
   return resp.json();
 }
@@ -17,7 +17,7 @@ export default async function MovieInfo({ id }: { id: string }) {
       />
       <div className={potato.info}>
         <h1 className={potato.title}>{movie.title}</h1>
-        <h3>⭐️ {movie.vote_average.toFixed(1)}</h3>
+        <h3>⭐️ {movie.vote_average.toFixed()}</h3>
         <p>{movie.overview}</p>
         <a href={movie.homepage} target={"_blank"}>
           Homepage &rarr;
