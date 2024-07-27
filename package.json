@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "author": "",
   "license": "MIT",
@@ -17,6 +19,6 @@
   "devDependencies": {
     "@types/node": "20.14.11",
     "@types/react": "18.3.3",
-    "typescript": "5.5.3"
+    "typescript": "^5.5.3"
   }
 }
